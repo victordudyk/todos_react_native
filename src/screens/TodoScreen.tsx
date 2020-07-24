@@ -23,16 +23,16 @@ export const TodoScreen = ({ goBack, todo, onRemove, onSave }: any) => {
 
       <AppCard style={styles.card}>
         <Text style={styles.title}>{todo.title}</Text>
-        <Button title="Ред." onPress={() => setModal(true)} />
+        <Button title="Edit" onPress={() => setModal(true)} />
       </AppCard>
 
       <View style={styles.buttons}>
         <View style={styles.button}>
-          <Button title="Назад" onPress={goBack} color={THEME.GREY_COLOR} />
+          <Button title="Back" onPress={goBack} color={THEME.GREY_COLOR} />
         </View>
         <View style={styles.button}>
           <Button
-            title="Удалить"
+            title="Remove"
             color={THEME.DANGER_COLOR}
             onPress={() => onRemove(todo.id)}
           />
@@ -46,13 +46,14 @@ const styles = StyleSheet.create({
   buttons: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "flex-start",
   },
   card: {
     marginBottom: 20,
     padding: 15,
   },
   button: {
-    width: "40%",
+    width: "45%",
   },
   title: {
     fontSize: 20,

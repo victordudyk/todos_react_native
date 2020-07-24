@@ -10,7 +10,7 @@ export const AddTodo = ({ onSubmit }: any) => {
       onSubmit(value);
       setValue("");
     } else {
-      Alert.alert("Название дела не может быть пустым");
+      Alert.alert("Title can not be empty!");
     }
   };
 
@@ -20,11 +20,11 @@ export const AddTodo = ({ onSubmit }: any) => {
         style={styles.input}
         onChangeText={setValue}
         value={value}
-        placeholder="Введите название дела..."
+        placeholder="Input title..."
         autoCorrect={false}
         autoCapitalize="none"
       />
-      <Button title="Добавить" onPress={pressHandler} />
+      <Button title="Add" onPress={pressHandler} />
     </View>
   );
 };
@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 15,
+    marginBottom: 10,
   },
   input: {
-    width: "70%",
+    width: "80%",
     padding: 10,
     borderStyle: "solid",
     borderBottomWidth: 2,

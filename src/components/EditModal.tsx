@@ -15,10 +15,10 @@ export const EditModal = ({ visible, onCancel, value, onSave }: any) => {
   const saveHandler = () => {
     if (title.trim().length < 3) {
       Alert.alert(
-        "Ошибка!",
-        `Минимальная длинна названия 3 символа. Сейчас ${
+        "Error!",
+        `Min length sould be 3 symbols. Currently ${
           title.trim().length
-        } символов.`
+        } sumbols.`
       );
     } else {
       onSave(title);
@@ -32,18 +32,22 @@ export const EditModal = ({ visible, onCancel, value, onSave }: any) => {
           value={title}
           onChangeText={setTitle}
           style={styles.input}
-          placeholder="Введите название"
+          placeholder="Input title"
           autoCapitalize="none"
           autoCorrect={false}
           maxLength={64}
         />
         <View style={styles.buttons}>
-          <Button
-            title="Отменить"
-            onPress={onCancel}
-            color={THEME.DANGER_COLOR}
-          />
-          <Button title="Сохранить" onPress={saveHandler} />
+          <View style={styles.button}>
+            <Button
+              title="Cancel"
+              onPress={onCancel}
+              color={THEME.DANGER_COLOR}
+            />
+          </View>
+          <View style={styles.button}>
+            <Button title="Save" onPress={saveHandler} />
+          </View>
         </View>
       </View>
     </Modal>
@@ -55,6 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    padding: 20,
   },
   input: {
     padding: 10,
@@ -62,10 +67,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     width: "80%",
   },
+  button: {
+    width: "40%",
+  },
   buttons: {
-    width: "100%",
+    width: "80%",
     marginTop: 10,
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-evenly",
   },
 });
